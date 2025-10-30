@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://vn2yg8221dk0"]
+
+[ext_resource type="Texture2D" path="res://logo2.jpg" id="1_hdmo1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_devta"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.564706)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_devta")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.105882354, 0.11372549, 0.5529412)
+
+[node name="StateLabelContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="StateLabelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -52.0
+offset_right = 151.5
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Resume" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.899811, 0.851514, 0.449075, 1)
+theme_override_colors/font_hover_color = Color(0.439972, 0.61795, 1, 1)
+text = "Resume"
+
+[node name="Restart Level" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.899811, 0.851514, 0.449075, 1)
+theme_override_colors/font_hover_color = Color(0.439972, 0.61795, 1, 1)
+text = "Restart Level"
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.899811, 0.851514, 0.449075, 1)
+theme_override_colors/font_hover_color = Color(0.439972, 0.61795, 1, 1)
+text = "Settings
+"
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.898039, 0.85098, 0.45098, 1)
+theme_override_colors/font_hover_color = Color(0.439216, 0.619608, 1, 1)
+text = "Exit"
+
+[node name="Logo2" type="Sprite2D" parent="."]
+position = Vector2(121.75, 124.750015)
+scale = Vector2(0.25390628, 0.25390628)
+texture = ExtResource("1_hdmo1")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Buttons/Resume" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Buttons/Restart Level" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

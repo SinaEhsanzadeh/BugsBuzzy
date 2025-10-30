@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bx7qva3b6o0pj"]
+[gd_scene load_steps=11 format=3 uid="uid://chvs6wsobktq6"]
 
-[ext_resource type="Script" uid="uid://c2gladtk28y4n" path="res://Scenes/character_body_2d.gd" id="1_cvnsp"]
+[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://c5t0wm0ci82je" path="res://Sprites/Player_Sheet.png" id="1_v0iea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
@@ -71,3 +71,5 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_f1ek2")
 autoplay = "default"
 frame_progress = 0.07494527
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

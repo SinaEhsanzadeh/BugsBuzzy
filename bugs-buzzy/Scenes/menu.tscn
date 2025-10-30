@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=3 uid="uid://om3qm7m4opp2"]
+
+[ext_resource type="Texture2D" path="res://logo.jpg" id="1_lti8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_in4ny"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+visible = false
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1082.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.442, 0.442)
+autoplay = true
+loop = true
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_in4ny")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07846785, 0.106126174, 0.11207495, 0.55200005)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 180.0
+offset_top = -457.0
+offset_right = 999.0
+offset_bottom = -32.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.898039, 0.85098, 0.45098, 1)
+theme_override_colors/font_hover_color = Color(0.439216, 0.619608, 1, 1)
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.898039, 0.85098, 0.45098, 1)
+theme_override_colors/font_hover_color = Color(0.439216, 0.619608, 1, 1)
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.898039, 0.85098, 0.45098, 1)
+theme_override_colors/font_hover_color = Color(0.439216, 0.619608, 1, 1)
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_pressed_color = Color(0.898039, 0.85098, 0.45098, 1)
+theme_override_colors/font_hover_color = Color(0.439216, 0.619608, 1, 1)
+text = "Exit"
+
+[node name="Logo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -542.0
+offset_top = 60.0
+offset_right = -38.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Logo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bugz buzzy"
+horizontal_alignment = 1
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+
+[node name="Loading" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Logo2" type="Sprite2D" parent="."]
+position = Vector2(104, 105)
+scale = Vector2(0.2375, 0.2375)
+texture = ExtResource("1_lti8b")
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

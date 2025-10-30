@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="BugsBuzzy"
-run/main_scene="uid://dac62g6cjwoem"
+run/main_scene="uid://ceflncs0arit4"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
+<<<<<<<HEADrun/main_scene="uid://bbpg1nmv3p2gw"
+
+[dotnet]
+
+project/assembly_name="BugsBuzzy"
 
 [rendering]
 
