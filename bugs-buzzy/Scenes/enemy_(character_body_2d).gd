@@ -1,54 +1,48 @@
 extends CharacterBody2D
 
-# سرعت حرکت دشمن
 @export var speed: int = 50
-# محدوده حرکت به واحد پیکسل
-@export var patrol_range: float = 50.0
-# میزان آسیب دشمن
+@export var patrol_range: float = 30.0
 @export var damage_amount: int = 10
 
-# نقطه شروع حرکت
 var start_position: Vector2
-# جهت حرکت (1 برای راست، -1 برای چپ)
 var direction: int = 1
 
 func _ready():
-	# موقعیت اولیه دشمن را ذخیره می‌کنیم
 	start_position = position
 	$AnimatedSprite2D.play("walk")
-	add_to_group("enemies")  # دشمن رو به گروه enemies اضافه کن
+	add_to_group("enemies")
+	print("Enemy ready!")
 
 func _physics_process(delta):
-	# حرکت رفت و برگشتی
 	patrol_movement(delta)
-	
-	# حرکت و چک کردن برخورد
 	move_and_slide()
-	
-	# چک کن ببین با پلییر برخورد کرده یا نه
+	check_player_collision()
+
+func check_player_collision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
-		# اگر با پلییر برخورد کردی
 		if collider != null and collider.is_in_group("player"):
-			# به پلییر آسیب بزن
-			collider.take_damage(damage_amount)
+			print("ENEMY: Collided with player! Calling lose_life...")
+			
+			# اینجا باید lose_life رو صدا بزنی نه take_damage
+			if collider.has_method("lose_life"):
+				print("ENEMY: lose_life method exists! Calling it...")
+				collider.lose_life()
+			else:
+				print("ENEMY: ERROR - lose_life method not found!")
 
 func patrol_movement(_delta):
-	# اگر از محدوده مجاز خارج شد، جهت حرکت را عکس کن
 	if position.x > start_position.x + patrol_range:
 		direction = -1
 	elif position.x < start_position.x - patrol_range:
 		direction = 1
 		
-	# اگر به سمت چپ حرکت می‌کنیم، اسپرایت را برگردان
 	if direction == -1:
-		$AnimatedSprite2D.flip_h = false
-	else:
 		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 		
-	# سرعت را در جهت مورد نظر تنظیم کن
 	velocity.x = direction * speed
-	# سرعت در راستای Y را صفر نگه دار
 	velocity.y = 0
