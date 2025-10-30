@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var damage_amount: int = 10
+@export var damage_amount: int = 1
 @export var tilemap: TileMap
 
 func _ready():

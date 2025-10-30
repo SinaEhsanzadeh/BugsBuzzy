@@ -19,8 +19,6 @@ var invincibility_duration: float = 3.0  # 3 ثانیه
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var damage_tile_ids: Array[int] = [2, 5, 8]
-@onready var tilemap = get_node("../TileMap")
 
 func _ready():
 	print("Player initialized with lives: ", lives)
@@ -78,15 +76,7 @@ func _physics_process(delta: float) -> void:
 			sprite.play("default")
 
 	move_and_slide()
-	check_damage_tiles()
-
-func check_damage_tiles():
-	if tilemap and not is_invincible:  # فقط وقتی آسیب‌پذیر هست چک کن
-		var tile_pos = tilemap.local_to_map(position)
-		var tile_id = tilemap.get_cell_source_id(0, tile_pos)
-		
-		if damage_tile_ids.has(tile_id):
-			lose_life()
+	# تابع check_damage_tiles رو حذف کردیم چون با Area2D کار میکنه
 
 # تابع برای شروع آسیب‌ناپذیری
 func start_invincibility():
@@ -135,4 +125,10 @@ func die():
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy") and not is_invincible:
 		print("Hurtbox touched enemy! Losing life...")
+		lose_life()
+
+# تابع جدید برای تشخیص برخورد با damage blocks
+func _on_damage_area_body_entered(body):
+	if body == self and not is_invincible:  # مطمئن شو این پلیر هست و آسیب‌ناپذیر نیست
+		print("💥 Player hit damage area!")
 		lose_life()
