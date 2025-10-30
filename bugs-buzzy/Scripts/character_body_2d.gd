@@ -5,6 +5,7 @@ signal health_changed(new_health)
 
 @onready var sprite = $AnimatedSprite2D
 @onready var hurtboxsprite = $Hurtbox/AnimatedSprite2D
+@onready var light_2d = $"../PlayerLight"  # ✨ جدید
 
 var attacking = false
 var isgoingleft = false
@@ -26,6 +27,18 @@ func _ready():
 	add_to_group("player")
 	lives_changed.emit(lives)
 	health_changed.emit(health)
+	
+	# ✨ تنظیم نور
+	if light_2d:
+		light_2d.enabled = true
+		light_2d.position = Vector2.ZERO
+		print("✅ Player light enabled")
+	else:
+		print("❌ PlayerLight not found!")
+		# دیباگ
+		print("Player children:")
+		for child in get_children():
+			print(" - ", child.name)
 
 func _process(delta):
 	if is_dead:
@@ -42,6 +55,10 @@ func _process(delta):
 		
 		# چشمک زدن برای نشان دادن آسیب‌ناپذیری
 		sprite.modulate.a = 0.5 if Engine.get_frames_drawn() % 10 < 5 else 1.0
+	
+	# ✨ نور رو با پلیر حرکت بده
+	if light_2d:
+		light_2d.global_position = global_position
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
