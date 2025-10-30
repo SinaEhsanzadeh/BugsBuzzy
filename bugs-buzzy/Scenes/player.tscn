@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bx7qva3b6o0pj"]
+[gd_scene load_steps=32 format=3 uid="uid://bx7qva3b6o0pj"]
 
 [ext_resource type="Script" uid="uid://c2gladtk28y4n" path="res://Scripts/character_body_2d.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://c5t0wm0ci82je" path="res://Sprites/Player_Sheet.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://c7vl2ohtbftm3" path="res://Sprites/slash_sheet.png" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(11, 15)
@@ -164,14 +165,65 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
+size = Vector2(11, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gysh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpjfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ijsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1odr")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"slash",
+"speed": 16.0
+}]
+
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-7, -10)
+position = Vector2(-7, -3)
 script = ExtResource("1_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(7, 10)
+zoom = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1.5, 2.5)
@@ -182,3 +234,21 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_f1ek2")
 autoplay = "default"
 frame_progress = 0.4714058
+
+[node name="Hurtbox" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(7, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hurtbox"]
+position = Vector2(5.5, -7)
+shape = SubResource("RectangleShape2D_6t5aa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Hurtbox"]
+position = Vector2(7, -7)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_0gysh")
+animation = &"slash"
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[connection signal="area_entered" from="CharacterBody2D/Hurtbox" to="CharacterBody2D" method="_on_hurtbox_area_entered"]
