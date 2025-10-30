@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ceflncs0arit4"]
+[gd_scene load_steps=11 format=4 uid="uid://cfo02s8d5qt4e"]
 
 [ext_resource type="Texture2D" uid="uid://bohqxd2orb6mn" path="res://Sprites/CastleTiles.png" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://bx7qva3b6o0pj" path="res://Scenes/player.tscn" id="1_r150o"]
