@@ -20,6 +20,12 @@ config/icon="res://Sprites/icon.svg"
 
 project/assembly_name="BugsBuzzy"
 
+[file_customization]
+
+folder_colors={
+"res://2/": "yellow"
+}
+
 [input]
 
 attack={
