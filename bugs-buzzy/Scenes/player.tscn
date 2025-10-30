@@ -170,6 +170,9 @@ animations = [{
 position = Vector2(-7, -10)
 script = ExtResource("1_cvnsp")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(7, 10)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(1.5, 2.5)
 shape = SubResource("RectangleShape2D_cvnsp")
