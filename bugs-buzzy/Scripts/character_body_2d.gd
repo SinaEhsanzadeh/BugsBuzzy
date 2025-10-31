@@ -7,6 +7,7 @@ signal health_changed(new_health)
 @onready var hurtbox = $Hurtbox
 @onready var hurtboxsprite = $Hurtbox/AnimatedSprite2D
 @onready var light_2d = $"../PlayerLight"
+@onready var audiostream = $"damage"
 @onready var attacking = false
 
 var isgoingleft = false
