@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="BugsBuzzy"
-run/main_scene="uid://ceflncs0arit4"
+run/main_scene="uid://dh25g3jvnko17"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 <<<<<<<HEADrun/main_scene="uid://bbpg1nmv3p2gw"
+
+[autoload]
+
+GameState="*res://game_state.gd"
 
 [dotnet]
 
