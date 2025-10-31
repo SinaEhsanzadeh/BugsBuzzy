@@ -187,3 +187,33 @@ func _on_damage_area_body_entered(body):
 	if body == self and not is_invincible:
 		print("💥 Player hit damage area!")
 		lose_life()
+
+
+func win_game():
+	print("🏆 PLAYER WON THE GAME!")
+	
+	# متوقف کردن پلیر
+	is_dead = true  # از حرکت بازش دار
+	velocity = Vector2.ZERO
+	
+	# انیمیشن پیروزی (اگر داری)
+	if sprite.sprite_frames != null and sprite.sprite_frames.has_animation("win"):
+		sprite.play("win")
+		await get_tree().create_timer(2.0).timeout
+	
+	# منوی پیروزی رو نشون بده
+	show_win_menu()
+
+func show_win_menu():
+	print("🎊 Showing win menu...")
+	
+	var win_menu = get_tree().get_first_node_in_group("win_menu")
+	if win_menu and win_menu.has_method("show_win_screen"):
+		win_menu.show_win_screen()
+	else:
+		# اگر منوی پیروزی نداری، از همون منوی گیم اور استفاده کن
+		var game_over_menu = get_tree().get_first_node_in_group("menu")
+		if game_over_menu and game_over_menu.has_method("show_win_screen"):
+			game_over_menu.show_win_screen()
+		else:
+			print("❌ No win menu found")

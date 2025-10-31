@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://ceflncs0arit4"]
+[gd_scene load_steps=23 format=4 uid="uid://ceflncs0arit4"]
 
 [ext_resource type="Texture2D" uid="uid://bohqxd2orb6mn" path="res://Sprites/CastleTiles.png" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://bx7qva3b6o0pj" path="res://Scenes/player.tscn" id="1_r150o"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://om3qm7m4opp2" path="res://Scenes/menu.tscn" id="11_4kpch"]
 [ext_resource type="Texture2D" uid="uid://duv8efnockmxd" path="res://Sprites/circle.png" id="11_frkhe"]
 [ext_resource type="Script" uid="uid://b32js2x22wl3q" path="res://Scenes/game_ui.gd" id="11_grg3l"]
+[ext_resource type="Script" uid="uid://e2pxq2km25w6" path="res://Scenes/end_level_area.gd" id="12_frkhe"]
+[ext_resource type="PackedScene" uid="uid://c4h60mi2kgdva" path="res://Scenes/win_menu.tscn" id="13_1p5hy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kln2b"]
 texture = ExtResource("1_idj7w")
@@ -1215,6 +1217,8 @@ sources/3 = SubResource("TileSetAtlasSource_bmxlf")
 sources/5 = SubResource("TileSetAtlasSource_4kpch")
 sources/6 = SubResource("TileSetAtlasSource_grg3l")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p5hy"]
+
 [node name="Main" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -1261,6 +1265,16 @@ theme_override_font_sizes/font_size = 50
 energy = 1.5
 texture = ExtResource("11_frkhe")
 texture_scale = 0.04
+
+[node name="EndLevelArea" type="Area2D" parent="."]
+position = Vector2(-106, 16)
+script = ExtResource("12_frkhe")
+
+[node name="WinMenu" parent="EndLevelArea" groups=["win_menu"] instance=ExtResource("13_1p5hy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea"]
+position = Vector2(-66, -3)
+shape = SubResource("RectangleShape2D_1p5hy")
 
 [node name="Enemy" parent="." instance=ExtResource("9_vy5pj")]
 position = Vector2(197, 66)
