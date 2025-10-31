@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ceflncs0arit4"]
+[gd_scene load_steps=23 format=4 uid="uid://cmcoea2irdrfy"]
 
 [ext_resource type="Texture2D" uid="uid://bohqxd2orb6mn" path="res://Sprites/CastleTiles.png" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://bx7qva3b6o0pj" path="res://Scenes/player.tscn" id="1_r150o"]
@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cj28jyd3tyoax" path="res://Sprites/SewerTiles.png" id="4_jw32o"]
 [ext_resource type="Texture2D" uid="uid://bevjxg4uceq2x" path="res://2/logo.jpg" id="5_jw32o"]
 [ext_resource type="Texture2D" uid="uid://b4sp14p38umpr" path="res://Sprites/Dungeon Tile Set.png" id="6_50glp"]
-[ext_resource type="Script" uid="uid://b3coc3grh2afw" path="res://Scenes/damage_block.gd" id="8_grg3l"]
-[ext_resource type="PackedScene" uid="uid://8pnxerp4flkj" path="res://Scenes/Enemy.tscn" id="9_vy5pj"]
+[ext_resource type="Script" path="res://Scenes/damage_block.gd" id="8_grg3l"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemy.tscn" id="9_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://om3qm7m4opp2" path="res://Scenes/menu.tscn" id="11_4kpch"]
 [ext_resource type="Texture2D" uid="uid://duv8efnockmxd" path="res://Sprites/circle.png" id="11_frkhe"]
-[ext_resource type="Script" uid="uid://b32js2x22wl3q" path="res://Scenes/game_ui.gd" id="11_grg3l"]
+[ext_resource type="Script" path="res://Scenes/game_ui.gd" id="11_grg3l"]
 [ext_resource type="Script" uid="uid://e2pxq2km25w6" path="res://Scenes/end_level_area.gd" id="12_frkhe"]
 [ext_resource type="PackedScene" uid="uid://c4h60mi2kgdva" path="res://Scenes/win_menu.tscn" id="13_1p5hy"]
 

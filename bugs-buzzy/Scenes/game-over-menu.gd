@@ -5,26 +5,8 @@ extends CanvasLayer
 @onready var quit_button = $ColorRect/VBoxContainer/QuitButton
 
 func _ready():
-	add_to_group("menu")  # ✨ این خط خیلی مهمه!
+	add_to_group("menu")
 	visible = false
-	
-	# مطمئن شو دکمه‌ها وجود دارن
-	if try_again_button:
-		try_again_button.connect("pressed", _on_try_again_pressed)
-	else:
-		print("❌ TryAgainButton not found")
-	
-	if main_menu_button:
-		main_menu_button.connect("pressed", _on_main_menu_pressed)
-	else:
-		print("❌ MainMenuButton not found")
-	
-	if quit_button:
-		quit_button.connect("pressed", _on_quit_pressed)
-	else:
-		print("❌ QuitButton not found")
-	
-	print("✅ GameOverMenu ready!")
 
 func show_game_over():
 	print("🎮 GameOverMenu: Showing menu...")

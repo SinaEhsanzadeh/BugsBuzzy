@@ -4,14 +4,16 @@ signal lives_changed(new_lives)
 signal health_changed(new_health)
 
 @onready var sprite = $AnimatedSprite2D
+@onready var hurtbox = $Hurtbox
 @onready var hurtboxsprite = $Hurtbox/AnimatedSprite2D
-@onready var light_2d = $"../PlayerLight"  # ✨ جدید
+@onready var light_2d = $"../PlayerLight"
 
 var attacking = false
 var isgoingleft = false
 var lives: int = 3
 var health: int = 100
 var is_dead: bool = false
+var _hit_once: = {}
 
 # متغیرهای جدید برای آسیب‌ناپذیری
 var is_invincible: bool = false
@@ -173,12 +175,9 @@ func lose_life():
 		# فقط انیمیشن مرگ رو شروع کن
 		play_death_animation()
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if is_dead:
-		return
-	if area.is_in_group("enemy") and not is_invincible:
+func _on_hurtbox_area_entered(area) -> void:
+	if area.is_in_group("enemy"):
 		print("Hurtbox touched enemy! Losing life...")
-		lose_life()
 
 func _on_damage_area_body_entered(body):
 	if is_dead:
@@ -191,8 +190,7 @@ func _on_damage_area_body_entered(body):
 func win_game():
 	print("🏆 PLAYER WON THE GAME!")
 	
-	# متوقف کردن پلیر
-	is_dead = true  # از حرکت بازش دار
+	is_dead = true
 	velocity = Vector2.ZERO
 	
 	# انیمیشن پیروزی (اگر داری)
