@@ -36,3 +36,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

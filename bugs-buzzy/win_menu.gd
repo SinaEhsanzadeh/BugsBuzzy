@@ -23,7 +23,7 @@ func show_win_screen():
 		hash_label.visible = true
 	
 	visible = true
-	get_tree().paused = true
+
 
 func generate_hash_for_current_game() -> String:
 	# استفاده از شماره تیم از GameState و یک کلید خصوصی
@@ -48,3 +48,11 @@ func _on_play_again_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_quit_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_play_again_button_pressed() -> void:
+	pass # Replace with function body.
