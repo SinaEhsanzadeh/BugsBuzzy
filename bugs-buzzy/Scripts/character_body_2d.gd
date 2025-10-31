@@ -175,10 +175,6 @@ func lose_life():
 		# فقط انیمیشن مرگ رو شروع کن
 		play_death_animation()
 
-func _on_hurtbox_area_entered(area) -> void:
-	if area.is_in_group("enemy"):
-		print("Hurtbox touched enemy! Losing life...")
-
 func _on_damage_area_body_entered(body):
 	if is_dead:
 		return
@@ -214,3 +210,8 @@ func show_win_menu():
 			game_over_menu.show_win_screen()
 		else:
 			print("❌ No win menu found")
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy") and attacking:
+		body.die()

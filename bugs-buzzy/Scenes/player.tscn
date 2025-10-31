@@ -355,9 +355,6 @@ shape = SubResource("RectangleShape2D_6t5aa")
 position = Vector2(7, -7)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_0gysh")
-animation = &"slash"
 autoplay = "default"
-frame = 4
-frame_progress = 1.0
 
-[connection signal="area_entered" from="CharacterBody2D/Hurtbox" to="CharacterBody2D" method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/Hurtbox" to="CharacterBody2D" method="_on_hurtbox_body_entered"]

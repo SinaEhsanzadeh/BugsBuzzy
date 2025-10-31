@@ -163,7 +163,7 @@ size = Vector2(11.875, 5)
 [node name="Enemy" type="Node2D" groups=["enemy"]]
 scale = Vector2(2, 2)
 
-[node name="Enemy (CharacterBody2D)" type="CharacterBody2D" parent="."]
+[node name="Enemy (CharacterBody2D)" type="CharacterBody2D" parent="." groups=["enemy"]]
 script = ExtResource("2_xeo28")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy (CharacterBody2D)"]

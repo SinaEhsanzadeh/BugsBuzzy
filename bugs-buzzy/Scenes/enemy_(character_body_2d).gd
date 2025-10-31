@@ -48,4 +48,4 @@ func patrol_movement(_delta):
 	velocity.y = 0
 	
 func die() -> void:
-	queue_free()  # simple default: remove the enemy
+	queue_free()
