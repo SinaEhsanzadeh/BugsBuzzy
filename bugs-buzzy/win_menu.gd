@@ -19,7 +19,7 @@ func show_win_screen():
 	# تولید و نمایش هش
 	var hash_result = generate_hash_for_current_game()
 	if hash_label:
-		hash_label.text = "کد برد: " + hash_result
+		hash_label.text = "you'r code: " + hash_result
 		hash_label.visible = true
 	
 	visible = true

@@ -121,7 +121,6 @@ func show_game_over():
 	var main_menu = get_tree().get_first_node_in_group("menu")
 	if main_menu:
 		main_menu.visible = true
-		get_tree().paused = true
 		print("✅ Game over menu shown!")
 	else:
 		print("❌ Main menu not found")

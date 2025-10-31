@@ -29,7 +29,6 @@ func _ready():
 func show_game_over():
 	print("🎮 GameOverMenu: Showing menu...")
 	visible = true
-	get_tree().paused = true
 
 func _on_try_again_pressed():
 	print("🔄 Restarting game...")
@@ -39,9 +38,7 @@ func _on_try_again_pressed():
 func _on_main_menu_pressed():
 	print("🏠 Going to main menu...")
 	get_tree().paused = false
-	# اگر صحنه منوی اصلی داری، اسمش رو اینجا بذار
-	# get_tree().change_scene_to_file("res://main_menu.tscn")
-	get_tree().reload_current_scene()  # موقتاً
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_quit_pressed():
 	print("👋 Quitting game...")
