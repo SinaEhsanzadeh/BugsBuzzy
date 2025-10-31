@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var play_again_button = $ColorRect/VBoxContainer/PlayAgainButton
+@onready var main_menu_button = $ColorRect/VBoxContainer/MainMenuButton
 @onready var quit_button = $ColorRect/VBoxContainer/QuitButton
 @onready var hash_label = $ColorRect/VBoxContainer/HashLabel  # اضافه کردن لیبل برای نمایش هش
 
@@ -56,3 +57,13 @@ func _on_quit_button_pressed() -> void:
 
 func _on_play_again_button_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_main_menu_button_pressed() -> void:
+	pass # Replace with function body.
+	
+
+func _on_main_menu_pressed():
+	print("🏠 Going to main menu...")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
