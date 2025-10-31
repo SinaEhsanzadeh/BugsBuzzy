@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var team_input = $ColorRect/VBoxContainer/LineEdit
-@onready var start_button = $ColorRect/VBoxContainer/StartButton
-@onready var quit_button = $ColorRect/VBoxContainer/QuitButton
-@onready var error_label = $ColorRect/VBoxContainer/ErrorLabel
+@onready var team_input = $LineEdit
+@onready var start_button = $StartButton
+@onready var quit_button = $QuitButton
+@onready var error_label = $ErrorLabel
 
 func _ready():
 	# مخفی کردن پیام خطا
@@ -24,11 +24,12 @@ func _on_start_pressed():
 	
 	# اعتبارسنجی شماره تیم
 	if team_number_text.is_empty():
-		show_error("❌ لطفاً شماره تیم را وارد کنید")
+		show_error("please input team id")
 		return
 	
 	
 	print("🎮 Starting game with team: ", team_number_text)
+	print(team_number_text)
 	start_game(team_number_text)
 
 func show_error(message: String):
@@ -37,7 +38,7 @@ func show_error(message: String):
 
 func start_game(team_number_text: String):
 	# ✨ استفاده از GameState به جای Global
-	#GameState.player_team = team_number_text
+	GameState.player_team = team_number_text
 	
 	# رفتن به صحنه بازی
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

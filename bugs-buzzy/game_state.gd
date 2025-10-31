@@ -1,7 +1,7 @@
 extends Node
 
 # متغیرهای جهانی بازی
-var player_team: int = 0
+var player_team: String = ""
 var current_level: int = 1
 var player_score: int = 0
 
@@ -11,6 +11,6 @@ func _ready():
 
 # تابع برای ریست کردن بازی
 func reset_game():
-	player_team = 0
+	player_team = ""
 	current_level = 1
 	player_score = 0

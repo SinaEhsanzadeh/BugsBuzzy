@@ -1274,7 +1274,7 @@ script = ExtResource("12_frkhe")
 [node name="WinMenu" parent="EndLevelArea" groups=["win_menu"] instance=ExtResource("13_1p5hy")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea"]
-position = Vector2(-28, -3)
+position = Vector2(-25, -3)
 shape = SubResource("RectangleShape2D_1p5hy")
 
 [node name="Enemy" parent="." instance=ExtResource("9_vy5pj")]

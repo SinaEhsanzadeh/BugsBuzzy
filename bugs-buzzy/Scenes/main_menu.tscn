@@ -6,43 +6,36 @@
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_28flt")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="ColorRect"]
-position = Vector2(497.99997, 429.5)
-scale = Vector2(1.2857143, 1.6106771)
+[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="."]
+position = Vector2(576.5, 323.49994)
+scale = Vector2(0.8459822, 0.85286444)
 texture = ExtResource("2_48xlc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 55
-text = "Gaol Creeper
-"
-horizontal_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 480.0
+offset_top = 475.0
+offset_right = 695.0
+offset_bottom = 506.0
 placeholder_text = "team number"
 alignment = 1
 
-[node name="StartButton" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
+[node name="StartButton" type="Button" parent="."]
+offset_left = 486.0
+offset_top = 530.0
+offset_right = 697.0
+offset_bottom = 561.0
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 474.0
+offset_top = 575.0
+offset_right = 696.0
+offset_bottom = 606.0
 text = "Quit"
 
-[node name="ErrorLabel" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
+[node name="ErrorLabel" type="Label" parent="."]
+offset_left = 448.0
+offset_top = 434.0
+offset_right = 726.0
+offset_bottom = 457.0
+horizontal_alignment = 1

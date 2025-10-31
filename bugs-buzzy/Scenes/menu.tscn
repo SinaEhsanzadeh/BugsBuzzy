@@ -1,41 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://om3qm7m4opp2"]
 
 [ext_resource type="Script" uid="uid://c6ogmevlpjy2s" path="res://Scenes/game-over-menu.gd" id="1_1rerr"]
-[ext_resource type="Texture2D" uid="uid://crb7gnrgfmctx" path="res://2/Generated Image October 31, 2025 - 12_24PM.png" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://chosjrxs264o4" path="res://Sprites/Generated Image October 31, 2025 - 10_31AM.png" id="2_xhh6f"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_1rerr")
 
-[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="."]
-position = Vector2(497.99997, 429.5)
-scale = Vector2(1.2857143, 1.6106771)
+[node name="GeneratedImageOctober31,20251031am" type="Sprite2D" parent="."]
+position = Vector2(579.00006, 326.50003)
+scale = Vector2(0.86607146, 0.83203125)
 texture = ExtResource("2_xhh6f")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "GAME OVER"
-horizontal_alignment = 1
-
-[node name="TryAgainButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="TryAgainButton" type="Button" parent="."]
+offset_left = 465.0
+offset_top = 477.0
+offset_right = 692.0
+offset_bottom = 508.0
 text = "Try Again"
 
-[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 467.0
+offset_top = 571.0
+offset_right = 697.0
+offset_bottom = 602.0
 text = "Main Menu"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="VBoxContainer/TryAgainButton" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="TryAgainButton" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_pressed"]

@@ -1,54 +1,38 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4h60mi2kgdva"]
 
 [ext_resource type="Script" uid="uid://uvkeprg0w07q" path="res://win_menu.gd" id="1_k38nj"]
-[ext_resource type="Texture2D" uid="uid://crb7gnrgfmctx" path="res://2/Generated Image October 31, 2025 - 12_24PM.png" id="2_3al15"]
+[ext_resource type="Texture2D" uid="uid://gg7twt4oga80" path="res://Sprites/win.png" id="2_3al15"]
 
 [node name="WinMenu" type="CanvasLayer"]
 script = ExtResource("1_k38nj")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(400, 300)
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.3776122, 0.87073493, 0.36044955, 0.18431373)
-
-[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="ColorRect"]
-position = Vector2(522.50006, 465.5)
-scale = Vector2(1.3831846, 1.798177)
+[node name="Win" type="Sprite2D" parent="."]
+position = Vector2(573.49994, 328)
+scale = Vector2(0.85788685, 0.8307292)
 texture = ExtResource("2_3al15")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PlayAgainButton" type="Button" parent="."]
+offset_left = 467.0
+offset_top = 479.0
+offset_right = 692.0
+offset_bottom = 510.0
+text = "   "
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "YOU WIN !!!"
-horizontal_alignment = 1
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 467.0
+offset_top = 573.0
+offset_right = 694.0
+offset_bottom = 604.0
+text = "     "
 
-[node name="PlayAgainButton" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Play Again"
-
-[node name="MainMenuButton" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
-
-[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[node name="HashLabel" type="Label" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
+[node name="HashLabel" type="Label" parent="."]
+offset_left = 405.0
+offset_top = 130.0
+offset_right = 742.0
+offset_bottom = 185.0
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
