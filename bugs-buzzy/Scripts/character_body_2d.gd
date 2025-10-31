@@ -7,15 +7,13 @@ signal health_changed(new_health)
 @onready var hurtbox = $Hurtbox
 @onready var hurtboxsprite = $Hurtbox/AnimatedSprite2D
 @onready var light_2d = $"../PlayerLight"
+@onready var attacking = false
 
-var attacking = false
 var isgoingleft = false
 var lives: int = 3
 var health: int = 100
 var is_dead: bool = false
-var _hit_once: = {}
 
-# متغیرهای جدید برای آسیب‌ناپذیری
 var is_invincible: bool = false
 var invincibility_timer: float = 0.0
 var invincibility_duration: float = 3.0  # 3 ثانیه
@@ -66,6 +64,8 @@ func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 	
+	check_attack_hits()
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		if not attacking:
@@ -96,6 +96,11 @@ func _physics_process(delta: float) -> void:
 			sprite.play("default")
 
 	move_and_slide()
+
+func check_attack_hits():
+	for body in hurtbox.get_overlapping_bodies():
+		if body.is_in_group("enemy") and attacking:
+			body.die()
 
 func play_death_animation():
 	is_dead = true
@@ -145,7 +150,7 @@ func end_invincibility():
 	sprite.modulate.a = 1.0
 	print("Invincibility ended")
 
-func take_damage(amount: int):
+func take_damage():
 	if is_dead:
 		return
 	if is_invincible:
@@ -210,8 +215,3 @@ func show_win_menu():
 			game_over_menu.show_win_screen()
 		else:
 			print("❌ No win menu found")
-
-
-func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy") and attacking:
-		body.die()
