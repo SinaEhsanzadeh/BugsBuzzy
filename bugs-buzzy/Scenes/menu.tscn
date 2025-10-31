@@ -1,42 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://om3qm7m4opp2"]
+[gd_scene load_steps=3 format=3 uid="uid://om3qm7m4opp2"]
 
 [ext_resource type="Script" uid="uid://c6ogmevlpjy2s" path="res://Scenes/game-over-menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://crb7gnrgfmctx" path="res://2/Generated Image October 31, 2025 - 12_24PM.png" id="2_xhh6f"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_1rerr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0.12591082, 0.12591085, 0.12591079, 0.563)
+[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="."]
+position = Vector2(497.99997, 429.5)
+scale = Vector2(1.2857143, 1.6106771)
+texture = ExtResource("2_xhh6f")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "GAME OVER"
 horizontal_alignment = 1
 
-[node name="TryAgainButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="TryAgainButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Try Again"
 
-[node name="MainMenuButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="QuitButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/TryAgainButton" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/TryAgainButton" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

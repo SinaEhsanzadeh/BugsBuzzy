@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4h60mi2kgdva"]
+[gd_scene load_steps=3 format=3 uid="uid://c4h60mi2kgdva"]
 
 [ext_resource type="Script" uid="uid://uvkeprg0w07q" path="res://win_menu.gd" id="1_k38nj"]
+[ext_resource type="Texture2D" uid="uid://crb7gnrgfmctx" path="res://2/Generated Image October 31, 2025 - 12_24PM.png" id="2_3al15"]
 
 [node name="WinMenu" type="CanvasLayer"]
 script = ExtResource("1_k38nj")
@@ -11,11 +12,18 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.3776122, 0.87073493, 0.36044955, 0.18431373)
 
+[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="ColorRect"]
+position = Vector2(522.50006, 465.5)
+scale = Vector2(1.3831846, 1.798177)
+texture = ExtResource("2_3al15")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2

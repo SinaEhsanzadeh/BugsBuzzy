@@ -27,25 +27,17 @@ func _on_start_pressed():
 		show_error("❌ لطفاً شماره تیم را وارد کنید")
 		return
 	
-	if not team_number_text.is_valid_int():
-		show_error("❌ شماره تیم باید عدد باشد")
-		return
 	
-	var team_num = team_number_text.to_int()
-	if team_num <= 0:
-		show_error("❌ شماره تیم باید بزرگتر از صفر باشد")
-		return
-	
-	print("🎮 Starting game with team: ", team_num)
-	start_game(team_num)
+	print("🎮 Starting game with team: ", team_number_text)
+	start_game(team_number_text)
 
 func show_error(message: String):
 	error_label.text = message
 	error_label.visible = true
 
-func start_game(team_number: int):
+func start_game(team_number_text: String):
 	# ✨ استفاده از GameState به جای Global
-	GameState.player_team = team_number
+	#GameState.player_team = team_number_text
 	
 	# رفتن به صحنه بازی
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")

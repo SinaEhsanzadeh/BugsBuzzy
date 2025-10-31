@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh25g3jvnko17"]
+[gd_scene load_steps=3 format=3 uid="uid://doksotm5dnogt"]
 
 [ext_resource type="Script" uid="uid://dfby8n6ayx26v" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://crb7gnrgfmctx" path="res://2/Generated Image October 31, 2025 - 12_24PM.png" id="2_48xlc"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_28flt")
@@ -13,6 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="GeneratedImageOctober31,20251224pm" type="Sprite2D" parent="ColorRect"]
+position = Vector2(497.99997, 429.5)
+scale = Vector2(1.2857143, 1.6106771)
+texture = ExtResource("2_48xlc")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 0
 offset_right = 1152.0
@@ -21,7 +27,8 @@ offset_bottom = 648.0
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 55
-text = "Bugz Buzzy"
+text = "Gaol Creeper
+"
 horizontal_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="ColorRect/VBoxContainer"]

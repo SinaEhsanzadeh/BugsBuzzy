@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BugsBuzzy"
-run/main_scene="uid://dh25g3jvnko17"
+run/main_scene="uid://doksotm5dnogt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 <<<<<<<HEADrun/main_scene="uid://bbpg1nmv3p2gw"
