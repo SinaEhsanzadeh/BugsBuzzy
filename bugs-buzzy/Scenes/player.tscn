@@ -275,7 +275,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
-size = Vector2(11, 14)
+size = Vector2(10, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
 atlas = ExtResource("3_6t5aa")
@@ -301,7 +301,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -351,18 +351,14 @@ autoplay = "default"
 
 [node name="Hurtbox" type="Area2D" parent="CharacterBody2D"]
 position = Vector2(7, 10)
+disable_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hurtbox"]
-position = Vector2(5.5, -7)
+position = Vector2(5, -7)
 shape = SubResource("RectangleShape2D_6t5aa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Hurtbox"]
 position = Vector2(7, -7)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_0gysh")
-animation = &"slash"
 autoplay = "default"
-frame = 4
-frame_progress = 1.0
-
-[connection signal="area_entered" from="CharacterBody2D/Hurtbox" to="CharacterBody2D" method="_on_hurtbox_area_entered"]

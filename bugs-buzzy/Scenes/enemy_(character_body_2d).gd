@@ -46,3 +46,6 @@ func patrol_movement(_delta):
 		
 	velocity.x = direction * speed
 	velocity.y = 0
+	
+func die() -> void:
+	queue_free()

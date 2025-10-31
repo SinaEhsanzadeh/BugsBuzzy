@@ -5,9 +5,8 @@ extends CanvasLayer
 @onready var quit_button = $ColorRect/VBoxContainer/QuitButton
 
 func _ready():
-	add_to_group("menu")  # ✨ این خط خیلی مهمه!
+	add_to_group("menu")
 	visible = false
-	
 
 func show_game_over():
 	print("🎮 GameOverMenu: Showing menu...")

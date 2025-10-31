@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8pnxerp4flkj"]
+[gd_scene load_steps=26 format=3 uid="uid://l40lwm84iohv"]
 
 [ext_resource type="Texture2D" uid="uid://bmvb23sc6o8jb" path="res://Sprites/Bat-Die.png" id="2_kpr8r"]
 [ext_resource type="Script" uid="uid://007ygvegp2gh" path="res://Scenes/enemy_(character_body_2d).gd" id="2_xeo28"]
@@ -160,10 +160,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wovta"]
 size = Vector2(11.875, 5)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["enemy"]]
 scale = Vector2(2, 2)
 
-[node name="Enemy (CharacterBody2D)" type="CharacterBody2D" parent="."]
+[node name="Enemy (CharacterBody2D)" type="CharacterBody2D" parent="." groups=["enemy"]]
 script = ExtResource("2_xeo28")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy (CharacterBody2D)"]
