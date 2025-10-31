@@ -1,9 +1,13 @@
-[gd_scene load_steps=47 format=3 uid="uid://bx7qva3b6o0pj"]
+[gd_scene load_steps=51 format=3 uid="uid://bx7qva3b6o0pj"]
 
 [ext_resource type="Script" uid="uid://c2gladtk28y4n" path="res://Scripts/character_body_2d.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://c5t0wm0ci82je" path="res://Sprites/Player_Sheet.png" id="1_v0iea"]
+[ext_resource type="AudioStream" uid="uid://bgo6m5ynip6u7" path="res://Sprites/main.mp3" id="2_3smsa"]
+[ext_resource type="AudioStream" uid="uid://b63t3crw0x11q" path="res://Sprites/game_over.mp3" id="2_8erm5"]
+[ext_resource type="AudioStream" uid="uid://cx30ibr8y75ok" path="res://Sprites/atack.mp3" id="2_fkybt"]
 [ext_resource type="AudioStream" uid="uid://c45a1yk07nk0v" path="res://Sprites/damage.mp3" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://c7vl2ohtbftm3" path="res://Sprites/slash_sheet.png" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://cwnm540q110o1" path="res://Sprites/win.mp3" id="4_x3wgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(11, 15)
@@ -331,9 +335,23 @@ position = Vector2(6, 0)
 position = Vector2(-7, -3)
 script = ExtResource("1_cvnsp")
 
+[node name="gameover" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("2_8erm5")
+
+[node name="default" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("2_3smsa")
+autoplay = true
+
+[node name="atack" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(7, 10)
+stream = ExtResource("2_fkybt")
+
 [node name="damage" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
 position = Vector2(7, 3)
 stream = ExtResource("2_vgqql")
+
+[node name="win" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("4_x3wgy")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(2, 3)

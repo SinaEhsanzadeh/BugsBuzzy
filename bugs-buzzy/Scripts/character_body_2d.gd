@@ -8,6 +8,10 @@ signal health_changed(new_health)
 @onready var hurtboxsprite = $Hurtbox/AnimatedSprite2D
 @onready var light_2d = $"../PlayerLight"
 @onready var audiostream = $"damage"
+@onready var default_audio = $"default"
+@onready var attack_audio = $"atack"
+@onready var win_audio = $"win"
+@onready var gameover_audio = $"gameover"
 @onready var attacking = false
 
 var isgoingleft = false
@@ -126,6 +130,9 @@ func play_death_animation():
 func show_game_over():
 	print("🎮 PLAYER: Showing game over menu...")
 	
+	default_audio.stop()
+	gameover_audio.play()
+	
 	var main_menu = get_tree().get_first_node_in_group("menu")
 	if main_menu:
 		main_menu.visible = true
@@ -138,6 +145,7 @@ func attack():
 		return
 	attacking = true
 	hurtboxsprite.play("slash")
+	attack_audio.play()
 	await hurtboxsprite.animation_finished
 	attacking = false
 
@@ -192,10 +200,11 @@ func _on_damage_area_body_entered(body):
 
 func win_game():
 	print("🏆 PLAYER WON THE GAME!")
-	
 	is_dead = true
 	velocity = Vector2.ZERO
 	
+	default_audio.stop()
+	win_audio.play()
 	# انیمیشن پیروزی (اگر داری)
 	if sprite.sprite_frames != null and sprite.sprite_frames.has_animation("win"):
 		sprite.play("win")

@@ -19,9 +19,9 @@ func create_damage_areas():
 			if tile_set:
 				shape.size = tile_set.tile_size
 			else:
-				shape.size = Vector2(16, 16)
+				shape.size = Vector2(12, 14)
 		else:
-			shape.size = Vector2(16, 16)  # سایز پیش‌فرض
+			shape.size = Vector2(12, 14)  # سایز پیش‌فرض
 			
 		collision.shape = shape
 		area.add_child(collision)
