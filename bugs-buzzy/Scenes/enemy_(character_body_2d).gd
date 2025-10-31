@@ -40,9 +40,9 @@ func patrol_movement(_delta):
 		direction = 1
 		
 	if direction == -1:
-		$AnimatedSprite2D.flip_h = true
-	else:
 		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 		
 	velocity.x = direction * speed
 	velocity.y = 0
