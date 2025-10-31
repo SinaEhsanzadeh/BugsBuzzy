@@ -5,7 +5,8 @@ signal health_changed(new_health)
 
 @onready var sprite = $AnimatedSprite2D
 @onready var hurtboxsprite = $Hurtbox/AnimatedSprite2D
-@onready var light_2d = $"../PlayerLight"  # ✨ جدید
+@onready var light_2d = $"../PlayerLight"  
+@onready var audiostream = $damage
 
 var attacking = false
 var isgoingleft = false
@@ -153,12 +154,13 @@ func take_damage(amount: int):
 	lose_life()
 
 func lose_life():
+	
 	if is_dead:
 		return
 	if is_invincible:
 		print("Player is invincible! No life lost.")
 		return
-		
+	audiostream.play()
 	print("=== PLAYER LOST A LIFE! ===")
 	lives -= 1
 	print("Lives remaining: ", lives)

@@ -29,7 +29,7 @@ func show_win_screen():
 func generate_hash_for_current_game() -> String:
 	# استفاده از شماره تیم از GameState و یک کلید خصوصی
 	var solver_group_id = str(GameState.player_team)
-	var private_key = "your_private_key_here"  # این کلید را تغییر دهید یا از جای امنی بخوانید
+	var private_key = "SUMMBGVE"  # این کلید را تغییر دهید یا از جای امنی بخوانید
 	
 	return generate_hash(solver_group_id, private_key)
 
