@@ -1223,6 +1223,7 @@ sources/6 = SubResource("TileSetAtlasSource_grg3l")
 [node name="Main" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.061644454, 0.061644454, 0.061644454, 1)
 
 [node name="damage block" type="TileMapLayer" parent="." groups=["damage block", "damage_tiles"]]
@@ -1263,6 +1264,7 @@ theme_override_font_sizes/font_size = 50
 [node name="Menu" parent="Player/GameUI" groups=["menu", "player"] instance=ExtResource("11_4kpch")]
 
 [node name="PlayerLight" type="PointLight2D" parent="Player"]
+visible = false
 energy = 1.5
 texture = ExtResource("11_frkhe")
 texture_scale = 0.04
