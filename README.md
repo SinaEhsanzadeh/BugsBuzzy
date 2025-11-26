@@ -1,6 +1,6 @@
-# BugsBuzzy
+# Gaol Creeper
 
-BugsBuzzy is a small 2D platformer/demo made with the Godot Engine. It contains scenes, scripts, sprites and audio assets to demonstrate basic player movement, enemies, damage areas, menus and level/end conditions.
+Gaol Creeper is a small 2D platformer/demo made with the Godot Engine. It contains scenes, scripts, sprites and audio assets to demonstrate basic player movement, enemies, damage areas, menus and level/end conditions.
 
 ## Preview
 
